@@ -33,3 +33,91 @@ Decimal 1995-------Binario 11111001011------Hexadecimal 7CB
 3.    Translate 51966 into hexadecimal and binary
   -           CAFE         --------------- 1100101011111110          
 4.    Base on the examples and the guide of the low-level language: 5.1 Create a program to add two numbers given by the user 5.2 Create a program that display your name
+
+.data
+pregunta: .asciiz "¿Cuantos numeros ENTEROS quieres sumar?\n"
+ cuales: .asciiz "¿Que números son? Introducelos: \n"
+ resultado: .asciiz "\n El resultado de la suma es: "
+ .text
+main:
+
+#pide por pantalla cuantos elementos ENTEROS va a sumar el usuario
+ li $v0, 4
+ la $a0, pregunta
+ syscall
+
+li $v0, 5
+ syscall
+
+move $t1, $v0 #v0 guarda el numero de elementos que quiere sumar el usuario
+ addi $t0, $zero, 0#initialize counter(aumenta de uno en uno)
+
+#pregunta cuales son
+ li $v0, 4
+ la $a0, cuales
+ jal input #jumps to function that waits all values introduced by user and saves them to stack
+
+jal suma
+
+move $t1, $v1 #$t1 now holds the result
+
+li $v0, 4
+ la $a0, resultado
+ syscall
+
+li $v0, 1
+ move $a0, $t1
+ syscall
+
+j exit
+
+suma:#gives result in $v1
+
+move $t8, $ra#saves a ddress of first caller
+ addi $t5, $zero, 0#initialize register where the result will be hold
+ addi $t0, $zero, 0#counter of loop
+
+loop_suma:
+
+beq $t0, $t1, end_suma
+
+lw $t6, 0($sp)
+
+add $t5, $t5, $t6
+
+addi $sp, $sp, 4#move on to next position of stack
+ addi $t0, $t0, 1#counter loop +1
+ j loop_suma
+
+end_suma:
+ move $v1, $t5
+ move $ra, $t8 #give back control to caller
+ jr $ra
+
+input:
+ move $t9, $ra#Save address of original
+
+loop_input:
+
+beq $t0, $t1, end_input
+
+li $v0, 5
+ syscall
+
+#Push-Metemos elemento introducido por usuario en Stack/Pila
+ addi $sp, $sp, -4
+ sw $v0, ($sp)
+
+#step
+ addi $t0, $t0, 1
+
+#loop
+ j loop_input
+
+end_input:
+ move $ra, $t9
+ jr $ra
+
+exit:
+ li $v0, 10
+ syscall
