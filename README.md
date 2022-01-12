@@ -1,7 +1,7 @@
 # BootCamp Core Code
-#1 WEEK
-- DAY 1: Introduccion
-- DAY 2: 
+## 1 WEEK
+### - DAY 1: Introduccion
+### - DAY 2: 
 1.	Java language is compiled or interpreted?
 The Java language is both compiled and interpreted. The compiler converts the source code that resides in files whose extension is. java, a set of instructions named bytecodes that are stored in a file whose extension is .class
 2.	Why are flowcharts important to us as developers?
