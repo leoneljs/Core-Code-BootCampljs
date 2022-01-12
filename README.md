@@ -25,3 +25,11 @@ public class sin_titulo {
 the pseudocode allows to create a beta version of the code with a non-formal language and thus verify if there is a certain error to solve it in the best way
 5.	Create a pseudocode to calculate the aproximated age of a user base on the year they born, (you can define a variable with the actual year if you need it, like for example i could define Y <-- 2022)
 ![image](https://user-images.githubusercontent.com/52414295/149167806-7ee3097d-4c9f-4c07-8679-f2de2aa003f8.png)
+
+
+### - DAY 3: 
+1.    Translate the year you where born to binary, decimal and hexadecimal
+Decimal 1995-------Binario 11111001011------Hexadecimal 7CB
+3.    Translate 51966 into hexadecimal and binary
+  -           CAFE         --------------- 1100101011111110          
+4.    Base on the examples and the guide of the low-level language: 5.1 Create a program to add two numbers given by the user 5.2 Create a program that display your name
