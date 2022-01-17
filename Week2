@@ -1,0 +1,56 @@
+## 2 WEEK
+### - DAY 1: Introduccion
+### - DAY 2: 
+1. 
+//multiply = function (a, b) {
+  return a * b;
+  
+  
+  
+2.You'll be given a string, and have to return the sum of all characters as an int. 
+The function should be able to handle all ASCII characters.
+
+examples:
+
+uniTotal("a") == 97 uniTotal("aaa") == 291
+//function uniTotal(str) {
+  var count = 0;
+  for (var i = 0; i < str.length; i++) {
+    count += str.charCodeAt(i);
+  }
+  return count;
+}
+
+3.
+Write a function get_char() / getChar() which takes a number
+ and returns the corresponding ASCII char for that value.
+ //const getChar = String.fromCharCode;
+ 
+ 4.Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+
+The binary number returned should be a string.
+
+Examples:(Input1, Input2 --> Output (explanation)))
+ 
+ //function addBinary(a,b){
+  return (a+b).toString(2)
+}
+
+
+
+5.Create a function finalGrade, which calculates the final grade of a student depending on two parameters: a grade for the exam and a number of completed projects.
+
+This function should take two arguments: exam - grade for exam (from 0 to 100); projects - number of completed projects (from 0 and above);
+
+This function should return a number (final grade). There are four types of final grades:
+
+100, if a grade for the exam is more than 90 or if a number of completed projects more than 10.
+90, if a grade for the exam is more than 75 and if a number of completed projects is minimum 5.
+75, if a grade for the exam is more than 50 and if a number of completed projects is minimum 2.
+0, in other cases
+//function finalGrade (exam, projects) {
+  if(exam > 90 || projects > 10) return 100;
+  if(exam > 75 & projects >= 5) return 90;
+  if(exam > 50 & projects >= 2) return 75;
+  return 0;
+}
